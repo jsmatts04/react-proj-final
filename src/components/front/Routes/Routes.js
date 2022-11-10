@@ -5,21 +5,23 @@ import Cart from '../Cart/Cart';
 import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 
-const Routes = ({ productItems }) => {
+const Routes = ({ productItems, cartItems, handleAddProduct }) => {
     return (
-    <div>
-        <Switch>
-            <Route path="/" exact>
-                <Products productItems={productItems} />
-            </Route>
-            <Route path="/signup" exact>
-                <SignUp />
-            </Route>
-            <Route path="/cart" exact>
-                <Cart />
-            </Route>
-        </Switch>
-    </div>
+        <div>
+            <Switch>
+                <Route path="/" exact>
+                    <Products productItems={productItems}
+                        handleAddProduct={handleAddProduct} />
+                </Route>
+                <Route path="/signup" exact>
+                    <SignUp />
+                </Route>
+                <Route path="/cart" exact>
+                    <Cart cartItems={cartItems}
+                        handleAddProduct={handleAddProduct} />
+                </Route>
+            </Switch>
+        </div>
     );
 };
 
